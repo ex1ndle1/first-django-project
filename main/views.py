@@ -9,8 +9,7 @@ def home(requests):
 
 
 
-def check_age(request):
-    age = request.GET.get("age")
+def check_age(request,age):
 
     if age >= 18:
         return HttpResponse('<b>Hi! You r not teen anymore</b>')
@@ -22,3 +21,19 @@ def check_age(request):
         return HttpResponse('enter tour age!')
     
 
+def check_region(request,region):
+    regions = ["Toshkent",'Andijon',"Farg‘ona","Namangan","Sirdaryo","Jizzax","Samarqand","Qashqadaryo", "Surxondaryo","Navoiy", "Buxoro","Xorazm","Qoraqalpog‘iston"]
+    
+    if region == 'Namangan':
+            return HttpResponse('I am also from Namangan!')
+       
+
+    if   region in regions:
+        return HttpResponse(f'<b>Oh, {region} is really good!</b>')
+
+    else:
+        return HttpResponse('Please enter region,which located in Uzbekistan!')
+    
+    
+    
+    
